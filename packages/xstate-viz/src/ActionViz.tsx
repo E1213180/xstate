@@ -6,7 +6,7 @@ const BUILTIN_PREFIX = 'xstate.';
 
 function formatAction(action: ActionObject<any, any>): JSX.Element | string {
   if (action.type === 'xstate.send') {
-    if (action.event!.type.startsWith('xstate.after')) {
+    if (action.event!.type && action.event!.type.startsWith('xstate.after')) {
       return `send ${toDelayString(action.delay!)} delay`;
     }
 
